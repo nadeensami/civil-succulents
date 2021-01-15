@@ -71,12 +71,6 @@ nav {
   color: white;
 }
 
-/* section {
-  padding-top: 10vh;
-  height: 100vh;
-  color: rgb(39, 67, 39);
-} */
-
 .cactus {
   position: fixed;
   bottom: -10vh;
@@ -92,7 +86,7 @@ nav {
 }
 
 .hero {
-  margin: 20vh 15vw;
+  margin: 10vh 15vw 5vh 15vw;
   height: auto;
   width: 70vw;
   background-color: rgba(255, 255, 255, 0.4);
@@ -111,11 +105,12 @@ nav {
 }
 
 #about {
-  padding: 0 15vw;
+  padding: 10vh 15vw 0 15vw;
   height: auto;
 }
 
 #about h2 {
+  padding-top: 10vh;
   font-size: 2rem;
   padding-bottom: 1rem;
 }
@@ -161,10 +156,11 @@ form {
   height: auto;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 #order {
-  padding: 15vw 15vw;
+  padding: 20vh 15vw 10vh 15vw;
 }
 
 .cards {
@@ -176,7 +172,9 @@ form {
 }
 
 .card {
-  display: inline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: auto;
   width: 20vw;
   background-color: rgba(255, 255, 255, 0.4);
@@ -193,6 +191,7 @@ form {
   width: 15vh;
   object-fit: cover;
 }
+
 .quantity {
   width: 5rem;
   padding: 1rem;
@@ -203,6 +202,7 @@ form {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 2rem;
   font-size: 1rem;
+  align-self: center;
 }
 
 .text,
@@ -221,6 +221,17 @@ textarea {
   outline: none;
 }
 
+.mode {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+}
+
+.hidden {
+  display: None;
+}
+
 label {
   display: inline;
 }
@@ -229,9 +240,31 @@ textarea::placeholder {
   font-size: 1rem;
 }
 
+textarea {
+  min-width: auto;
+  min-height: 6rem;
+}
+
 .submitbtn {
   width: 20vw;
   font-size: 1rem;
+  background: rgba(255, 255, 255, 0.4);
+
+  backdrop-filter: blur(15px);
+}
+
+.footer {
+  display: flex;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer a {
+  text-decoration: none;
+  color: rgb(124, 194, 124);
 }
 
 @media only screen and (max-width: 800px) {
@@ -244,6 +277,16 @@ textarea::placeholder {
   html {
     font-size: 90%;
   }
+  .cards {
+    flex-direction: column;
+  }
+  .card {
+    flex-direction: row;
+    width: auto;
+  }
+  .card img {
+    margin: 0.5rem;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -254,7 +297,7 @@ textarea::placeholder {
     width: 30vh;
   }
   html {
-    font-size: 80%;
+    font-size: 75%;
   }
 }
 

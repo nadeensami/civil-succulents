@@ -26,10 +26,10 @@
       />
       <div class="links">
         <button onclick="smoothScroll(document.querySelector('.before'))" id="homebtn">Home</button>
-        <button onclick="smoothScroll(document.getElementById('about'))" id="aboutbtn">
+        <button onclick="smoothScroll(document.getElementById('abouts'))" id="aboutbtn">
           About
         </button>
-        <button onclick="smoothScroll(document.getElementById('order'))" id="orderbtn">
+        <button onclick="smoothScroll(document.getElementById('orders'))" id="orderbtn">
           Order
         </button>
       </div>
@@ -48,6 +48,7 @@
         </p>
       </div>
     </section>
+    <div id="abouts"></div>
     <section id="about">
       <h2>About the Fundraiser</h2>
       <p>
@@ -58,44 +59,86 @@
         like it, in which case we can give you a pot without the logo!
         <br />
         <br />
-        [Order dates / Delivery dates/We can do delivery or you can come and pick up your plant via
-        curbside delivery]
+        Thank you for supporting us! With each order, you are helping our GPA but also “the folks at
+        - charity -”
+
+        <br /><br />
+        Sincerly, your friendly neighborhood techs: <br />Tyler, Danica, Keegan and Wadika
       </p>
     </section>
+    <div id="orders"></div>
     <section id="order">
       <h2>Order Now</h2>
       <br />
       <form action="https://formspree.io/f/mbjpqebq" method="POST">
         <label for="name"> Name </label>
-        <input class="text" type="text" name="name" />
+        <input class="text" type="text" name="name" required />
         <label for="email"> Email </label>
         <input class="text" type="text" name="_replyto" />
-        <label for="address"> Address </label>
-        <input class="text" type="text" name="address" />
+
+        <p>We can do delivery or you can come and get your plant via curbside pickup</p>
+        <br />
+        <div class="mode">
+          <div>
+            <input type="radio" id="pickup" name="mode" value="pickup" onchange="pickupMode()" />
+            &nbsp;
+            <label for="pickup">Pickup</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="delivery"
+              name="mode"
+              value="delivery"
+              onchange="deliveryMode()"
+            />
+            &nbsp;
+            <label for="delivery">Delivery</label>
+          </div>
+        </div>
+        <br />
+
+        <div id="mode-information" style="text-align: center">
+          <div class="delivery hidden">
+            <label for="address"> Address </label><br />
+            <input class="text" type="text" name="address" id="address" />
+          </div>
+          <div class="pickup hidden">
+            <label for="pickuptime"> Pickup Time </label><br />
+            <input class="text" type="text" name="pickuptime" id="pickuptime" />
+          </div>
+        </div>
+
         <div class="cards">
           <div class="card">
-            <h3>Plant 1</h3>
             <img src="img/cactus.png" alt="" />
-            <p>$5.00</p>
-            <br />
-            <label for="plant1-quantity">Amount:</label>
-            <input name="plant1-quantity" min="0" class="quantity" type="number" />
+            <div>
+              <h3>Plant 1</h3>
+              <p>$5.00</p>
+              <br />
+              <label for="plant1-quantity">Amount:</label>
+              <input name="plant1-quantity" min="0" class="quantity" type="number" />
+            </div>
           </div>
           <div class="card">
-            <h3>Plant 2</h3>
             <img src="img/cactus.png" alt="" />
-            <p>$8.00</p>
-            <br />
-            <label for="plant2-quantity">Amount:</label>
-            <input name="plant2-quantity" min="0" class="quantity" type="number" />
+            <div>
+              <h3>Plant 2</h3>
+              <p>$8.00</p>
+              <br />
+              <label for="plant2-quantity">Amount:</label>
+              <input name="plant2-quantity" min="0" class="quantity" type="number" />
+            </div>
           </div>
           <div class="card">
-            <h3>Plant 3</h3>
             <img src="img/cactus.png" alt="" />
-            <p>$5.00</p>
-            <br />
-            <label for="plant3-quantity">Amount:</label>
-            <input name="plant3-quantity" min="0" class="quantity" type="number" />
+            <div>
+              <h3>Plant 3</h3>
+              <p>$5.00</p>
+              <br />
+              <label for="plant3-quantity">Amount:</label>
+              <input name="plant3-quantity" min="0" class="quantity" type="number" />
+            </div>
           </div>
         </div>
         <label for="message"> Message </label>
@@ -107,7 +150,29 @@
         <button class="submitbtn" type="submit">Order</button>
       </form>
     </section>
+    <div class="footer">
+      <p>Made with ❤ by <a href="https://github.com/nadeensami">Nadeen Mohamed</a></p>
+    </div>
     <script>
+      const pickup = document.querySelector(".pickup");
+      const pickupLbl = document.querySelector("#pickuptime");
+      const delivery = document.querySelector(".delivery");
+      const deliveryLbl = document.querySelector("#address");
+
+      function pickupMode() {
+        pickup.classList.remove("hidden");
+        pickupLbl.required = true;
+        delivery.classList.add("hidden");
+        deliveryLbl.required = false;
+      }
+
+      function deliveryMode() {
+        pickup.classList.add("hidden");
+        pickupLbl.required = false;
+        delivery.classList.remove("hidden");
+        deliveryLbl.required = true;
+      }
+
       // Code by nico appreciatively taken from https://stackoverflow.com/questions/18071046/smooth-scroll-to-specific-div-on-click/18071231
       window.smoothScroll = function (target) {
         var scrollContainer = target;
