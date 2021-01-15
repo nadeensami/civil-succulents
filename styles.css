@@ -166,7 +166,8 @@ form {
 .cards {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
   height: auto;
   width: 100%;
 }
@@ -176,7 +177,7 @@ form {
   flex-direction: column;
   align-items: center;
   height: auto;
-  width: 20vw;
+  width: auto;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 2rem;
   backdrop-filter: blur(15px);
@@ -187,9 +188,10 @@ form {
 
 .card img {
   margin: 1rem;
-  height: 15vh;
-  width: 15vh;
-  object-fit: cover;
+  height: 20vh;
+  width: 20vh;
+  /* object-fit: cover; */
+  border-radius: 20%;
 }
 
 .quantity {
@@ -238,11 +240,13 @@ label {
 
 textarea::placeholder {
   font-size: 1rem;
+  /* padding: 2rem; */
 }
 
 textarea {
   min-width: auto;
-  min-height: 6rem;
+  padding: 2rem;
+  min-height: 8rem;
 }
 
 .submitbtn {
@@ -255,16 +259,19 @@ textarea {
 
 .footer {
   display: flex;
-  background: rgba(255, 255, 255, 0.4);
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(15px);
-  height: 10vh;
+  height: 20vh;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 2rem;
 }
 
-.footer a {
+a {
   text-decoration: none;
-  color: rgb(124, 194, 124);
+  color: rgb(87, 152, 87);
 }
 
 @media only screen and (max-width: 800px) {
@@ -286,6 +293,8 @@ textarea {
   }
   .card img {
     margin: 0.5rem;
+    width: 25vw;
+    height: 25vw;
   }
 }
 
