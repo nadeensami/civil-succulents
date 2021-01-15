@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/img/cactus.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Civil Succulents 🌵</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="before"></div>
+    <div class="circle"></div>
+    <div class="background"></div>
+    <img class="cactus" src="img/cactus.png" alt="" />
+    <nav>
+      <img
+        class="logo"
+        src="/img/logo.svg"
+        onclick="smoothScroll(document.querySelector('.before'))"
+        alt="logo"
+      />
+      <div class="links">
+        <button onclick="smoothScroll(document.querySelector('.before'))" id="homebtn">Home</button>
+        <button onclick="smoothScroll(document.getElementById('about'))" id="aboutbtn">
+          About
+        </button>
+        <button onclick="smoothScroll(document.getElementById('order'))" id="orderbtn">
+          Order
+        </button>
+      </div>
+    </nav>
+    <section id="home">
+      <div class="hero">
+        <h2>Hi there!</h2>
+        <p>
+          We are a group of four Civil Engineering Technologist students in our last semester! As a
+          part of our graduation requirements we are expected to create a fundraiser.
+          <br />
+          <br />
+          With COVID, our options were limited but we thought of how we could spread a little bit of
+          growth and happiness when the world feels like it's come to a halt. All profit will go
+          towards a “charity of choice - not yet decided”
+        </p>
+      </div>
+    </section>
+    <section id="about">
+      <h2>About the Fundraiser</h2>
+      <p>
+        We are selling succulents! We may have other kinds of plants available as well.
+        <br />
+        <br />
+        Each plant will be $5 - $8. All pots will have a stamp of our logo, unless you really don't
+        like it, in which case we can give you a pot without the logo!
+        <br />
+        <br />
+        [Order dates / Delivery dates/We can do delivery or you can come and pick up your plant via
+        curbside delivery]
+      </p>
+    </section>
+    <section id="order">
+      <h2>Order Now</h2>
+      <br />
+      <form action="https://formspree.io/f/mbjpqebq" method="POST">
+        <label for="name"> Name </label>
+        <input class="text" type="text" name="name" />
+        <label for="email"> Email </label>
+        <input class="text" type="text" name="_replyto" />
+        <label for="address"> Address </label>
+        <input class="text" type="text" name="address" />
+        <div class="cards">
+          <div class="card">
+            <h3>Plant 1</h3>
+            <img src="/img/cactus.png" alt="" />
+            <p>$5.00</p>
+            <br />
+            <label for="plant1-quantity">Amount:</label>
+            <input name="plant1-quantity" min="0" class="quantity" type="number" />
+          </div>
+          <div class="card">
+            <h3>Plant 2</h3>
+            <img src="/img/cactus.png" alt="" />
+            <p>$8.00</p>
+            <br />
+            <label for="plant2-quantity">Amount:</label>
+            <input name="plant2-quantity" min="0" class="quantity" type="number" />
+          </div>
+          <div class="card">
+            <h3>Plant 3</h3>
+            <img src="/img/cactus.png" alt="" />
+            <p>$5.00</p>
+            <br />
+            <label for="plant3-quantity">Amount:</label>
+            <input name="plant3-quantity" min="0" class="quantity" type="number" />
+          </div>
+        </div>
+        <label for="message"> Message </label>
+        <textarea
+          name="message"
+          placeholder="Please add any special instructions or notes here"
+        ></textarea>
+        <br />
+        <button class="submitbtn" type="submit">Order</button>
+      </form>
+    </section>
+    <script>
+      // Code by nico appreciatively taken from https://stackoverflow.com/questions/18071046/smooth-scroll-to-specific-div-on-click/18071231
+      window.smoothScroll = function (target) {
+        var scrollContainer = target;
+        do {
+          //find scroll container
+          scrollContainer = scrollContainer.parentNode;
+          if (!scrollContainer) return;
+          scrollContainer.scrollTop += 1;
+        } while (scrollContainer.scrollTop == 0);
+
+        var targetY = 0;
+        do {
+          //find the top of target relatively to the container
+          if (target == scrollContainer) break;
+          targetY += target.offsetTop;
+        } while ((target = target.offsetParent));
+
+        scroll = function (c, a, b, i) {
+          i++;
+          if (i > 30) return;
+          c.scrollTop = a + ((b - a) / 30) * i;
+          setTimeout(function () {
+            scroll(c, a, b, i);
+          }, 8);
+        };
+        // start scrolling
+        scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+      };
+    </script>
+  </body>
+</html>

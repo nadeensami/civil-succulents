@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  color: rgb(81, 105, 86);
+}
+
+h2,
+h3,
+label {
+  color: rgb(55, 79, 59);
+}
+
+.background {
+  background-image: linear-gradient(to right bottom, #d3fbd3, #cafff5, #dafeff, #f3fdff, #ffffff);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -40;
+}
+
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 10vh;
+  background: white;
+  padding: 0 15vw 0 15vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+}
+
+.logo {
+  height: 7vh;
+  width: auto;
+  cursor: pointer;
+}
+
+.links {
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links button,
+.submitbtn {
+  background: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgb(124, 194, 124);
+  color: rgb(81, 154, 81);
+  border-radius: 2rem;
+  cursor: pointer;
+  /* box-shadow: none; */
+  outline: none;
+}
+
+.links button:hover,
+.links button:focus,
+.submitbtn:hover,
+.submitbtn:focus {
+  background-color: rgb(124, 194, 124);
+  border: 2px solid rgb(124, 194, 124);
+  color: white;
+}
+
+/* section {
+  padding-top: 10vh;
+  height: 100vh;
+  color: rgb(39, 67, 39);
+} */
+
+.cactus {
+  position: fixed;
+  bottom: -10vh;
+  right: 0;
+  height: 70vh;
+  z-index: -1;
+}
+
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  margin: 20vh 15vw;
+  height: auto;
+  width: 70vw;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 2rem;
+  backdrop-filter: blur(15px);
+  padding: 4rem;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+}
+
+#about {
+  padding: 0 15vw;
+  height: auto;
+}
+
+#about h2 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+#about p {
+  font-size: 1.3rem;
+  padding-right: 15vw;
+}
+
+.circle {
+  position: fixed;
+  top: 0;
+  left: -10vw;
+  width: 35rem;
+  height: 35rem;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    to right top,
+    #ffffff,
+    #a4dab4,
+    #b5f7be,
+    #8fde8c,
+    #9be289,
+    #98e691,
+    #96ea99,
+    #93eea1,
+    #82f2b6,
+    #72f6ca,
+    #66f9de,
+    #5ffbf1
+  );
+  opacity: 0.4;
+  /* background-image: linear-gradient(to left top, #a2fba2, #e3faff, #fdfdfd); */
+  filter: blur(15px);
+  /* background-image: linear-gradient(to left top, #d3fbd3, #cafff5, #dafeff, #f3fdff, #ffffff); */
+  z-index: -2;
+}
+
+#order,
+form {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#order {
+  padding: 15vw 15vw;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  width: 100%;
+}
+
+.card {
+  display: inline;
+  height: auto;
+  width: 20vw;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 2rem;
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.card img {
+  margin: 1rem;
+  height: 15vh;
+  width: 15vh;
+  object-fit: cover;
+}
+.quantity {
+  width: 5rem;
+  padding: 1rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgb(124, 194, 124);
+  color: rgb(81, 154, 81);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2rem;
+  font-size: 1rem;
+}
+
+.text,
+textarea {
+  display: inline;
+  margin: 1rem;
+  width: 50vw;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 1rem;
+  border: 2px solid rgb(124, 194, 124);
+  color: rgb(81, 154, 81);
+  border-radius: 2rem;
+  cursor: pointer;
+  backdrop-filter: blur(15px);
+  /* box-shadow: none; */
+  outline: none;
+}
+
+label {
+  display: inline;
+}
+
+textarea::placeholder {
+  font-size: 1rem;
+}
+
+.submitbtn {
+  width: 20vw;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .links {
+    width: 50vh;
+  }
+  .cactus {
+    display: none;
+  }
+  html {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #homebtn {
+    display: none;
+  }
+  .links {
+    width: 30vh;
+  }
+  html {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #aboutbtn {
+    display: none;
+  }
+  .links {
+    width: auto;
+  }
+}
